@@ -1,401 +1,393 @@
 <!DOCTYPE html>
 <html>
-<title>Haley Ohms</title>
-<meta charset="UTF-8">
-<meta http-equiv="cache-control" content="no-cache">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="resources/images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="resources/images/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
-     
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-    height: 100%;
-    color: #777;
-    line-height: 1.8;
-}
+    <head>
+        <title>Haley Ohms</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="resources/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="resources/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>-->
+        <!--<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>-->  
+        <link rel="stylesheet" href="vendors/leaflet/leaflet.css"/>
+        <script src="vendors/leaflet/leaflet.js" type="text/javascript"></script>    
+        <style>
+            body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+            body, html {
+                height: 100%;
+                color: #777;
+                line-height: 1.8;
+            }
 
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+            /* Create a Parallax Effect */
+            .bgimg-1, .bgimg-2, .bgimg-3 {
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
 
-/* First image (Logo. Full height) */
-.bgimg-1 {
-    background-image: url('resources/images/img1.jpg');
-    min-height: 100%;
-}
+            /* First image (Logo. Full height) */
+            .bgimg-1 {
+                background-image: url('resources/images/img1.jpg');
+                min-height: 100%;
+            }
 
-/* Second image (Portfolio) */
-.bgimg-2 {
-    background-image: url("resources/images/img2.jpg");
-    min-height: 500px;
-}
+            /* Second image (Portfolio) */
+            .bgimg-2 {
+                background-image: url("resources/images/img2.jpg");
+                min-height: 500px;
+            }
 
-/* Third image (Contact) */
-.bgimg-3 {
-    background-image: url("resources/images/img3.jpg");
-    min-height: 500px;
-}
+            /* Third image (Contact) */
+            .bgimg-3 {
+                background-image: url("resources/images/img3.jpg");
+                min-height: 500px;
+            }
 
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
+            .w3-wide {letter-spacing: 10px;}
+            .w3-hover-opacity {cursor: pointer;}
 
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1024px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: scroll;
-    }
-}
-    .navBarBtn{
-        background-color: transparent!important;
-        color: black!important;
-    }
-    
-    
-    .blurp--top {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -96px;
-    margin-top: -50px;
-    z-index: 0;
-}
+            /* Turn off parallax scrolling for tablets and phones */
+            @media only screen and (max-device-width: 1024px) {
+                .bgimg-1, .bgimg-2, .bgimg-3 {
+                    background-attachment: scroll;
+                }
+            }
+                .navBarBtn{
+                    background-color: transparent!important;
+                    color: black!important;
+                }
 
-.down-arrow--bubble {
-    bottom: -16px;
-}
 
-.down-arrow {
-    display: block;
-    width: 80px;
-    height: 80px;
-    opacity: 0.7;
-    position: absolute;
-    left: 50%;
-    margin-left: -40px;
-    /*cursor: pointer;*/
-    z-index: 0;
-}
-    
-.down-arrow--bubble .arrow {
-    width: 16px;
-    height: 16px;
-    margin-left: -8px;
-    margin-top: -8px;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
-}
-    
-.down-arrow .arrow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 20;
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-    
-    
-    
-    
-</style>
+                .blurp--top {
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -96px;
+                margin-top: -50px;
+                z-index: 0;
+            }
+
+            .down-arrow--bubble {
+                bottom: -16px;
+            }
+
+            .down-arrow {
+                display: block;
+                width: 80px;
+                height: 80px;
+                opacity: 0.7;
+                position: absolute;
+                left: 50%;
+                margin-left: -40px;
+                /*cursor: pointer;*/
+                z-index: 0;
+            }
+
+            .down-arrow--bubble .arrow {
+                width: 16px;
+                height: 16px;
+                margin-left: -8px;
+                margin-top: -8px;
+                border-right: 2px solid black;
+                border-bottom: 2px solid black;
+            }
+
+            .down-arrow .arrow {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 20;
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+        </style>
+    </head>
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-   <div class="w3-bar" id="myNavbar">
-      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-      </a>
-      <a href="#home" class="w3-bar-item w3-button navBarBtn">HOME</a>
-      <a href="#about" class="w3-bar-item w3-button w3-hide-small navBarBtn"><i class="fa fa-user"></i> ABOUT</a>
-      <a href="#researchAnchor" class="w3-bar-item w3-button w3-hide-small navBarBtn"><i class="fa fa-area-chart"></i> RESEARCH</a>
-      <a href="https://scholar.google.com/citations?user=bYgNPGAAAAAJ&hl=en" target="_blank" class="w3-bar-item w3-button w3-hide-small navBarBtn"><i class="fa fa-file-text"></i> PUBLICATIONS</a> 
-      <a href="#contactAnchor" class="w3-bar-item w3-button w3-hide-small navBarBtn"><i class="fa fa-envelope"></i> CONTACT</a>
-      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red navBarBtn">
-      <!--<i class="fa fa-search"></i>-->
-      </a>
-   </div>
-   <!-- Navbar on small screens -->
-   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-      <a href="#research" class="w3-bar-item w3-button" onclick="toggleFunction()">RESEARCH</a>
-      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-      <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-   </div>
-</div>
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container" id="home">
-   <!-- w3-opacity-min-->
-   <div class="w3-display-middle" style="white-space:nowrap;">
-      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Haley Ohms, Ph.D.</span>
-      <br>
-      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Fish Ecology and Evolution</span>
-   </div>
-</div>
-    
-<svg class="blurp--top" width="192" height="61" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160.7 61.5" enable-background="new 0 0 160.7 61.5" xml:space="preserve">
-    <path fill="#FFFFFF" d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z"></path>
-</svg>
-<div class="down-arrow down-arrow--bubble">
-    <div class="arrow"></div>
-</div>
-    
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-   <h3 class="w3-center">ABOUT ME</h3>
-   <p class="w3-center"><em>Welcome to my website!</em></p>
-   <p>I grew up in Anchorage, spent summers commercial fishing in Prince William Sound, and found my way into fisheries science by counting salmon for the Alaska Department of Fish and Game in Bristol Bay. I received both my master’s and doctorate from Oregon State University; my masters from the Department of Fisheries and Wildlife and my doctorate from Department of Integrative Biology. 
-   </p>
-   <div class="w3-row">
-      <div class="w3-col m6 w3-center w3-padding-large">
-         <img src="resources/images/IMG_6456a_small.jpg" class="w3-round w3-image" alt="Photo of Me">
-      </div>
-      <!-- Hide this text on small devices -->
-      <div class="w3-col m6 w3-hide-small w3-padding-large">
-         <p>My research combines evolutionary theory, quantitative methods, and field studies to answer questions about why fish do what they do, and how they may adapt to future conditions. Although I have primarily focused on fish ecology and evolution, my research applies broadly to the study of evolution and its connections with ecology. 
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+       <div class="w3-bar" id="myNavbar">
+          <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+          <i class="fa fa-bars"></i>
+          </a>
+          <a href="#home" class="w3-bar-item w3-button navBarBtn">HOME</a>
+          <a href="#about" class="w3-bar-item w3-button w3-hide-small navBarBtn"><i class="fa fa-user"></i> ABOUT</a>
+          <a href="#researchAnchor" class="w3-bar-item w3-button w3-hide-small navBarBtn"><i class="fa fa-area-chart"></i> RESEARCH</a>
+          <a href="https://scholar.google.com/citations?user=bYgNPGAAAAAJ&hl=en" target="_blank" class="w3-bar-item w3-button w3-hide-small navBarBtn"><i class="fa fa-file-text"></i> PUBLICATIONS</a> 
+          <a href="#contactAnchor" class="w3-bar-item w3-button w3-hide-small navBarBtn"><i class="fa fa-envelope"></i> CONTACT</a>
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red navBarBtn">
+          <!--<i class="fa fa-search"></i>-->
+          </a>
+       </div>
+       <!-- Navbar on small screens -->
+       <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+          <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+          <a href="#research" class="w3-bar-item w3-button" onclick="toggleFunction()">RESEARCH</a>
+          <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+          <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+       </div>
+    </div>
+    <!-- First Parallax Image with Logo Text -->
+    <div class="bgimg-1 w3-display-container" id="home">
+       <!-- w3-opacity-min-->
+       <div class="w3-display-middle" style="white-space:nowrap;">
+          <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Haley Ohms, Ph.D.</span>
+          <br>
+          <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Fish Ecology and Evolution</span>
+       </div>
+    </div>
+
+    <svg class="blurp--top" width="192" height="61" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160.7 61.5" enable-background="new 0 0 160.7 61.5" xml:space="preserve">
+        <path fill="#FFFFFF" d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z"></path>
+    </svg>
+    <div class="down-arrow down-arrow--bubble">
+        <div class="arrow"></div>
+    </div>
+
+    <!-- Container (About Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="about">
+       <h3 class="w3-center">ABOUT ME</h3>
+       <p class="w3-center"><em>Welcome to my website!</em></p>
+       <p>I grew up in Anchorage, spent summers commercial fishing in Prince William Sound, and found my way into fisheries science by counting salmon for the Alaska Department of Fish and Game in Bristol Bay. I received both my master’s and doctorate from Oregon State University; my masters from the Department of Fisheries and Wildlife and my doctorate from Department of Integrative Biology. 
+       </p>
+       <div class="w3-row">
+          <div class="w3-col m6 w3-center w3-padding-large">
+             <img src="resources/images/IMG_6456a_small.jpg" class="w3-round w3-image" alt="Photo of Me">
+          </div>
+          <!-- Hide this text on small devices -->
+          <div class="w3-col m6 w3-hide-small w3-padding-large">
+             <p>My research combines evolutionary theory, quantitative methods, and field studies to answer questions about why fish do what they do, and how they may adapt to future conditions. Although I have primarily focused on fish ecology and evolution, my research applies broadly to the study of evolution and its connections with ecology. 
+             </p>
+             <p>Please see my <a href="resources/documents/OhmsCV.pdf" target="_blank">CV</a> for more information.</p>
+          </div>
+       </div>
+    </div>
+    <!-- Second Parallax Image with Portfolio Text -->
+    <div id="researchAnchor" class="bgimg-2 w3-display-container">
+       <div class="w3-display-middle">
+          <span class="w3-xxlarge w3-text-white w3-wide">RESEARCH</span>
+       </div>
+    </div>
+    <!-- Container (Portfolio Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="research">
+       <h3 class="w3-center">MY WORK</h3>
+       <p>
+          My current research program was spawned (pun intended) from a single interesting fish species known by two names. Steelhead and rainbow trout are two names for the same species: a salmonid known as <i>Oncorhynchus mykiss</i>. Steelhead are born in streams, migrate to the ocean as juveniles, and return to spawn in streams. They are big, silvery, and look like a salmon. Rainbow trout are also born in streams, but remain there for their entire life cycle. They are small, camouflaged, and do not look like a salmon. Yet, from observations and genetics, we know steelhead and rainbow trout mate with one another and can produce some offspring that migrate (i.e., become a steelhead) and others that remain in the stream (i.e., become a rainbow trout).
+       </p>
+       <p>  
+          I wanted to know <i>why</i> do they do this.   
          </p>
-         <p>Please see my <a href="resources/documents/OhmsCV.pdf" target="_blank">CV</a> for more information.</p>
-      </div>
-   </div>
-</div>
-<!-- Second Parallax Image with Portfolio Text -->
-<div id="researchAnchor" class="bgimg-2 w3-display-container">
-   <div class="w3-display-middle">
-      <span class="w3-xxlarge w3-text-white w3-wide">RESEARCH</span>
-   </div>
-</div>
-<!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64" id="research">
-   <h3 class="w3-center">MY WORK</h3>
-   <p>
-      My current research program was spawned (pun intended) from a single interesting fish species known by two names. Steelhead and rainbow trout are two names for the same species: a salmonid known as <i>Oncorhynchus mykiss</i>. Steelhead are born in streams, migrate to the ocean as juveniles, and return to spawn in streams. They are big, silvery, and look like a salmon. Rainbow trout are also born in streams, but remain there for their entire life cycle. They are small, camouflaged, and do not look like a salmon. Yet, from observations and genetics, we know steelhead and rainbow trout mate with one another and can produce some offspring that migrate (i.e., become a steelhead) and others that remain in the stream (i.e., become a rainbow trout).
-   </p>
-   <p>  
-      I wanted to know <i>why</i> do they do this.   
-     </p>
-   <p>
-      It turns out that steelhead and rainbow trout are not that unique. There are an impressive number of species in which migratory and resident types coexist. Other fish species, as well as ungulates, bats, birds, insects, amphibians and reptiles all have species with migrant and resident types coexisting. (You can learn more about them here). 
-    </p>
-    <p>
-      The diversity of species that contain migrants and residents makes the question of <i>why</i> all the more interesting. My research has focused on different aspects of this question, and you can find descriptions of that research below. 
-   </p>
+       <p>
+          It turns out that steelhead and rainbow trout are not that unique. There are an impressive number of species in which migratory and resident types coexist. Other fish species, as well as ungulates, bats, birds, insects, amphibians and reptiles all have species with migrant and resident types coexisting. (You can learn more about them here). 
+        </p>
+        <p>
+          The diversity of species that contain migrants and residents makes the question of <i>why</i> all the more interesting. My research has focused on different aspects of this question, and you can find descriptions of that research below. 
+       </p>
 
-   <h3 class="w3-center" style="margin-top:64px;">INTERESTS</h3>
-   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-   <!--  <ul class="w3-ul" style="width:100%">
-      <li>Fish ecology</li>
-      <li>Evolution</li>
-      <li>Life cycle models</li>
-          <li>Adaptive dynamics</li>
-          <li>Life history variation</li>
-          <li>Bayesian statistics</li>
-          <li>Time-series models</li>
-      </ul>-->
-   <div class="w3-row-padding w3-center">
-      <div class="w3-container">
-         <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Fish ecology</span>
-         <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Evolution</span>
-         <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Life-cycle models</span>
-         <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Adaptive dynamics</span>
-         <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Life-history variation</span>
-         <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Bayesian statistics</span>
-         <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Time-series models</span>
-         <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Game therory</span>
-      </div>
-   </div>
-   <h3 class="w3-center" style="margin-top:64px;">PROJECTS</h3>
-   <p class="w3-center" style="margin:0px"><i>Click the boxes to learn more</i></p>
-   <p class="w3-large"><i class="fa fa-square-o" aria-hidden="true" style="margin-right:10px; cursor: pointer;" onclick="document.getElementById('project1').style.display='block'"></i> What characteristics are associated with migration and which with residency?</p>
-   <p class="w3-large"><i class="fa fa-square-o" style="margin-right:10px; cursor: pointer;" onclick="document.getElementById('project2').style.display='block'"></i> How does natural selection maintain both migrants and residents? And, more generally, how does natural selection maintain life history variability?</p>
-   <p class="w3-large"><i class="fa fa-square-o" style="margin-right:10px; cursor: pointer;" onclick="document.getElementById('project3').style.display='block'"></i> Sex-ratio balancing: A method for estimating the fraction of migrants and residents </p>
-   <p class="w3-large"><i class="fa fa-square-o" style="margin-right:10px; cursor: pointer;" onclick="document.getElementById('project4').style.display='block'"></i> Two-sex life cycle model</p>
-   <div id="project1" class="w3-modal">
-      <div class="w3-modal-content">
-         <div class="w3-container">
-            <span onclick="document.getElementById('project1').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-            <h4>What characteristics are associated with migration and which with residency?</h4>
-            <p>Although most of the work on this topic has focused on individual differences in growth, lipids, and metabolism, the role of sex was largely ignored. I studied the role of sex, specifically whether females were more likely than males to migrate. In steelhead and rainbow trout, there is good reason that females should be more likely than males to migrate. Egg production takes more energy than sperm production, and migration leads to a higher growth environment in the ocean. I have shown that females are more likely than males to be steelhead, throughout their range. This pattern also hold true along gradients of migration difficulty and freshwater productivity, which suggests that while the overall proportion of steelhead may change, the steelhead sex ratios remain constant. 
-               Female-biased migration is a pattern that holds in majority of partially migratory taxa, but not in all. Because sex plays such a strong role in which individuals migrate, population models must take into account both sexes (which is something I’m working on here) and because the result is so consistent, I have used it in a model to predict the proportion of migrants and residents (see below).  
-            </p>
-         </div>
-      </div>
-   </div>
-   <div id="project2" class="w3-modal">
-      <div class="w3-modal-content">
-         <div class="w3-container">
-            <span onclick="document.getElementById('project2').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-            <h4>How does natural selection maintain both migrants and residents? And, more generally, how does natural selection maintain life history variability?</h4>
-            <p>This question drives much of my current research.  Natural selection is thought to be a process in which the type with the highest fitness ‘wins’. Under this model, populations should be composed of only migrants or only residents (which ever has higher fitness). 
-               Yet, that is not what we see in nature. Not only are migratory and resident phenotypes common, so is heritable variation in all sorts of other traits, such as age at migration, age at reproduction, egg size, or fecundity. This variation is thought to be an important component of population resilience (i.e., the portfolio effect). So, how does natural selection maintain this variation?
-               My research has shown that natural selection can maintain partial migration through feedbacks associated with some forms of density-dependent competition. Density-dependent competition can affect fitness in such that fitness is highest at low densities, such that the highest fitness occurs when a mother has offspring of both types. This is akin to frequency-dependent selection, but is driven by competition. Not all forms of competition lead to this feedback, however. If competition occurs between phenotypes (i.e., migrants and residents compete for the same resource), fitness is not frequency dependent and will not create the feedback necessary for partial migration. Whereas if competition occurs within the phenotypes (i.e., migrants compete only among themselves and residents compete only among themselves), fitness is frequency and density dependent sufficient for natural selection to lead to partial migration.
-               I am currently adding condition-dependence and phenotypic plasticity to this model to understand how competition and individual condition work in tandem to generate phenotypic variation.   
-            </p>
-         </div>
-      </div>
-   </div>
-   <div id="project3" class="w3-modal">
-      <div class="w3-modal-content">
-         <div class="w3-container">
-            <span onclick="document.getElementById('project3').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-            <h4>Sex-ratio balancing: A method for estimating the fraction of migrants and residents</h4>
-            <p>Although there is considerable interest in partially migratory species, most of the theoretical work remains untested because of the difficulty in measuring the proportion of migrants and residents, or the ‘migration propensity’. I have been developing a new method for estimating migration propensity that relies on the characteristic that females are more likely than males to migrate. By measuring sex ratios of the migrants and residents, one can estimate the migration propensity of a population. The relationship between sex ratios and migration propensity is shown in the figure below. Although this method is still in development, I think it holds a lot of promise for collecting data on a fundamental characteristic of partially migratory species (i.e., their migration propensity) and has direct applications to conservation and management of the species.
-            </p>
-         </div>
-      </div>
-   </div>
-   <div id="project4" class="w3-modal">
-      <div class="w3-modal-content">
-         <div class="w3-container">
-            <span onclick="document.getElementById('project4').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-            <h4>Two-sex life cycle model</h4>
-            <p>Although partial migration is a widespread phenomenon, little is known about how such species will respond to habitat restoration, climate change, land use changes. In species where females are more likely to migrate, such as steelhead and rainbow trout, predicting population responses requires a two-sex model. In collaboration with Chris Jordan at NOAA, I am currently developing a two-sex life cycle model for steelhead and rainbow trout to predict population responses in the Columbia River basin. 
-            </p>
-         </div>
-      </div>
-   </div>
-</div>
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-   <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-   <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption" class="w3-opacity w3-large"></p>
-   </div>
-</div>
-<!-- Third Parallax Image with Portfolio Text -->
-<div id="contactAnchor" class="bgimg-3 w3-display-container">
-   <div class="w3-display-middle">
-      <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-   </div>
-</div>
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contact">
-   <h3 class="w3-center">WHERE I WORK</h3>
-   <!-- <p class="w3-center"><em>I'd love your feedback!</em></p> -->
-   <div class="w3-row w3-padding-32 w3-section">
-      <div class="w3-col m6 w3-container">
-         <!-- Add Google Maps -->
-         <!--<div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>-->
-         <div id="map" class="w3-round-large" style="width: 100%; height: 400px"></div>
-         <!-- w3-greyscale-->
-      </div>
-      <div class="w3-col m6 w3-panel">
-         <div class="w3-large w3-margin-bottom">
-            <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> USGS Alaska Science Center<br>
-            <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: (907) 786-7053<br>
-            <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: haley.ohms@gmail.com<br>
-            <a href="https://github.com/haleyohms" target="_blank">
-                <i class="fa fa-github fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> GitHub<br></a>
-         </div>
-         <p class="w3-large">I would be happy to hear from you!</p>
-         <!--<form action="/action_page.php" target="_blank">
-         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-         <div class="w3-half">
-         <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-         </div>
-         <div class="w3-half">
-         <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-         </div>
-         </div>
-         <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-         <button class="w3-button w3-black w3-right w3-section" type="submit">
-         <i class="fa fa-paper-plane"></i> SEND MESSAGE
-         </button>
-         </form>-->
-      </div>
-   </div>
-</div>
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity">
-<a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-<!--<div class="w3-xlarge w3-section">
-   <i class="fa fa-facebook-official w3-hover-opacity"></i>
-   <i class="fa fa-instagram w3-hover-opacity"></i>
-   <i class="fa fa-snapchat w3-hover-opacity"></i>
-   <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-   <i class="fa fa-twitter w3-hover-opacity"></i>
-   <i class="fa fa-linkedin w3-hover-opacity"></i>
-   </div>
-   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>-->
-</footer>
- 
-<!-- Add Google Maps -->
-    <script
-        src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+       <h3 class="w3-center" style="margin-top:64px;">INTERESTS</h3>
+       <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+       <!--  <ul class="w3-ul" style="width:100%">
+          <li>Fish ecology</li>
+          <li>Evolution</li>
+          <li>Life cycle models</li>
+              <li>Adaptive dynamics</li>
+              <li>Life history variation</li>
+              <li>Bayesian statistics</li>
+              <li>Time-series models</li>
+          </ul>-->
+       <div class="w3-row-padding w3-center">
+          <div class="w3-container">
+             <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Fish ecology</span>
+             <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Evolution</span>
+             <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Life-cycle models</span>
+             <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Adaptive dynamics</span>
+             <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Life-history variation</span>
+             <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Bayesian statistics</span>
+             <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Time-series models</span>
+             <span class="w3-tag w3-round w3-grey w3-large" style="margin:5px;">Game therory</span>
+          </div>
+       </div>
+       <h3 class="w3-center" style="margin-top:64px;">PROJECTS</h3>
+       <p class="w3-center" style="margin:0px"><i>Click the boxes to learn more</i></p>
+       <p class="w3-large"><i class="fa fa-square-o" aria-hidden="true" style="margin-right:10px; cursor: pointer;" onclick="document.getElementById('project1').style.display='block'"></i> What characteristics are associated with migration and which with residency?</p>
+       <p class="w3-large"><i class="fa fa-square-o" style="margin-right:10px; cursor: pointer;" onclick="document.getElementById('project2').style.display='block'"></i> How does natural selection maintain both migrants and residents? And, more generally, how does natural selection maintain life history variability?</p>
+       <p class="w3-large"><i class="fa fa-square-o" style="margin-right:10px; cursor: pointer;" onclick="document.getElementById('project3').style.display='block'"></i> Sex-ratio balancing: A method for estimating the fraction of migrants and residents </p>
+       <p class="w3-large"><i class="fa fa-square-o" style="margin-right:10px; cursor: pointer;" onclick="document.getElementById('project4').style.display='block'"></i> Two-sex life cycle model</p>
+       <div id="project1" class="w3-modal">
+          <div class="w3-modal-content">
+             <div class="w3-container">
+                <span onclick="document.getElementById('project1').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <h4>What characteristics are associated with migration and which with residency?</h4>
+                <p>Although most of the work on this topic has focused on individual differences in growth, lipids, and metabolism, the role of sex was largely ignored. I studied the role of sex, specifically whether females were more likely than males to migrate. In steelhead and rainbow trout, there is good reason that females should be more likely than males to migrate. Egg production takes more energy than sperm production, and migration leads to a higher growth environment in the ocean. I have shown that females are more likely than males to be steelhead, throughout their range. This pattern also hold true along gradients of migration difficulty and freshwater productivity, which suggests that while the overall proportion of steelhead may change, the steelhead sex ratios remain constant. 
+                   Female-biased migration is a pattern that holds in majority of partially migratory taxa, but not in all. Because sex plays such a strong role in which individuals migrate, population models must take into account both sexes (which is something I’m working on here) and because the result is so consistent, I have used it in a model to predict the proportion of migrants and residents (see below).  
+                </p>
+             </div>
+          </div>
+       </div>
+       <div id="project2" class="w3-modal">
+          <div class="w3-modal-content">
+             <div class="w3-container">
+                <span onclick="document.getElementById('project2').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <h4>How does natural selection maintain both migrants and residents? And, more generally, how does natural selection maintain life history variability?</h4>
+                <p>This question drives much of my current research.  Natural selection is thought to be a process in which the type with the highest fitness ‘wins’. Under this model, populations should be composed of only migrants or only residents (which ever has higher fitness). 
+                   Yet, that is not what we see in nature. Not only are migratory and resident phenotypes common, so is heritable variation in all sorts of other traits, such as age at migration, age at reproduction, egg size, or fecundity. This variation is thought to be an important component of population resilience (i.e., the portfolio effect). So, how does natural selection maintain this variation?
+                   My research has shown that natural selection can maintain partial migration through feedbacks associated with some forms of density-dependent competition. Density-dependent competition can affect fitness in such that fitness is highest at low densities, such that the highest fitness occurs when a mother has offspring of both types. This is akin to frequency-dependent selection, but is driven by competition. Not all forms of competition lead to this feedback, however. If competition occurs between phenotypes (i.e., migrants and residents compete for the same resource), fitness is not frequency dependent and will not create the feedback necessary for partial migration. Whereas if competition occurs within the phenotypes (i.e., migrants compete only among themselves and residents compete only among themselves), fitness is frequency and density dependent sufficient for natural selection to lead to partial migration.
+                   I am currently adding condition-dependence and phenotypic plasticity to this model to understand how competition and individual condition work in tandem to generate phenotypic variation.   
+                </p>
+             </div>
+          </div>
+       </div>
+       <div id="project3" class="w3-modal">
+          <div class="w3-modal-content">
+             <div class="w3-container">
+                <span onclick="document.getElementById('project3').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <h4>Sex-ratio balancing: A method for estimating the fraction of migrants and residents</h4>
+                <p>Although there is considerable interest in partially migratory species, most of the theoretical work remains untested because of the difficulty in measuring the proportion of migrants and residents, or the ‘migration propensity’. I have been developing a new method for estimating migration propensity that relies on the characteristic that females are more likely than males to migrate. By measuring sex ratios of the migrants and residents, one can estimate the migration propensity of a population. The relationship between sex ratios and migration propensity is shown in the figure below. Although this method is still in development, I think it holds a lot of promise for collecting data on a fundamental characteristic of partially migratory species (i.e., their migration propensity) and has direct applications to conservation and management of the species.
+                </p>
+             </div>
+          </div>
+       </div>
+       <div id="project4" class="w3-modal">
+          <div class="w3-modal-content">
+             <div class="w3-container">
+                <span onclick="document.getElementById('project4').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <h4>Two-sex life cycle model</h4>
+                <p>Although partial migration is a widespread phenomenon, little is known about how such species will respond to habitat restoration, climate change, land use changes. In species where females are more likely to migrate, such as steelhead and rainbow trout, predicting population responses requires a two-sex model. In collaboration with Chris Jordan at NOAA, I am currently developing a two-sex life cycle model for steelhead and rainbow trout to predict population responses in the Columbia River basin. 
+                </p>
+             </div>
+          </div>
+       </div>
+    </div>
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+       <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+       <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+          <img id="img01" class="w3-image">
+          <p id="caption" class="w3-opacity w3-large"></p>
+       </div>
+    </div>
+    <!-- Third Parallax Image with Portfolio Text -->
+    <div id="contactAnchor" class="bgimg-3 w3-display-container">
+       <div class="w3-display-middle">
+          <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+       </div>
+    </div>
+    <!-- Container (Contact Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="contact">
+       <h3 class="w3-center">WHERE I WORK</h3>
+       <!-- <p class="w3-center"><em>I'd love your feedback!</em></p> -->
+       <div class="w3-row w3-padding-32 w3-section">
+          <div class="w3-col m6 w3-container">
+             <!-- Add Google Maps -->
+             <!--<div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>-->
+             <div id="map" class="w3-round-large" style="width: 100%; height: 400px"></div>
+             <!-- w3-greyscale-->
+          </div>
+          <div class="w3-col m6 w3-panel">
+             <div class="w3-large w3-margin-bottom">
+                <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> USGS Alaska Science Center<br>
+                <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: (907) 786-7053<br>
+                <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: haley.ohms@gmail.com<br>
+                <a href="https://github.com/haleyohms" target="_blank">
+                    <i class="fa fa-github fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> GitHub<br></a>
+             </div>
+             <p class="w3-large">I would be happy to hear from you!</p>
+             <!--<form action="/action_page.php" target="_blank">
+             <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+             <div class="w3-half">
+             <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+             </div>
+             <div class="w3-half">
+             <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+             </div>
+             </div>
+             <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+             <button class="w3-button w3-black w3-right w3-section" type="submit">
+             <i class="fa fa-paper-plane"></i> SEND MESSAGE
+             </button>
+             </form>-->
+          </div>
+       </div>
+    </div>
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64 w3-opacity">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <!--<div class="w3-xlarge w3-section">
+       <i class="fa fa-facebook-official w3-hover-opacity"></i>
+       <i class="fa fa-instagram w3-hover-opacity"></i>
+       <i class="fa fa-snapchat w3-hover-opacity"></i>
+       <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+       <i class="fa fa-twitter w3-hover-opacity"></i>
+       <i class="fa fa-linkedin w3-hover-opacity"></i>
+       </div>
+       <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>-->
+    </footer>
+
+    <!-- Add Leaflet Map -->
+        <script>
+            var map = L.map('map').setView([61.1647749,-149.913696], 10);
+            mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; ' + mapLink + ' Contributors',
+                maxZoom: 18,
+                }).addTo(map);
+            var marker = L.marker([61.187896, -149.804136]).addTo(map);
+        </script>
+
+        <script>
+    function myMap()
+    {
+      myCenter=new google.maps.LatLng(61.2181, -149.9003);
+      var mapOptions= {
+        center:myCenter,
+        zoom:12, scrollwheel: false, draggable: false,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+      };
+      var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: myCenter,
+      });
+      marker.setMap(map);
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+
+    // Change style of navbar on scroll
+    window.onscroll = function() {myFunction()};
+    function myFunction() {
+        var navbar = document.getElementById("myNavbar");
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " w3-white";
+        } else {
+            navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
+        }
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function toggleFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
     </script>
 
-    <script>
-        var map = L.map('map').setView([61.1647749,-149.913696], 10);
-        mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; ' + mapLink + ' Contributors',
-            maxZoom: 18,
-            }).addTo(map);
-        var marker = L.marker([61.187896, -149.804136]).addTo(map);
-    </script>
-    
-    <script>
-function myMap()
-{
-  myCenter=new google.maps.LatLng(61.2181, -149.9003);
-  var mapOptions= {
-    center:myCenter,
-    zoom:12, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
-
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
-    }
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
 
     </body>
 </html>
